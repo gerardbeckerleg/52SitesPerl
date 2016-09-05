@@ -1,4 +1,8 @@
-before_script:
+language: perl
+ perl:
+  - "5.22"
+ sudo: false 
+ before_script:
   - echo -e "Host $DEPLOYHOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 branches:
