@@ -9,7 +9,7 @@ my $builder = Module::Build->new(
     dist_version_from   => 'lib/My/Module.pm',
     requires => {
         'Test::More' => 0,
-        'version'    => 1,
+        'version'    => 0,
     },
     add_to_cleanup      => [ 'My-Module-*' ],
 );

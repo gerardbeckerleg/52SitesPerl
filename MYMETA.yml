@@ -16,6 +16,6 @@ provides:
     version: v0.0.3
 requires:
   Test::More: '0'
-  version: '1'
+  version: '0'
 version: v0.0.3
 x_serialization_backend: 'CPAN::Meta::YAML version 0.018'

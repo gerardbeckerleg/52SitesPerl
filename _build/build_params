@@ -104,7 +104,7 @@ do{ my $x = [
          'release_status' => 'stable',
          'requires' => {
                          'Test::More' => 0,
-                         'version' => 1
+                         'version' => 0
                        },
          'script_files' => undef,
          'scripts' => undef,

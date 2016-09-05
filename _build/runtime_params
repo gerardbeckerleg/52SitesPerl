@@ -1,2 +1,4 @@
-do{ my $x = {};
+do{ my $x = {
+       'install_base' => '/home/gerardbeckerleg/perl5'
+     };
 $x; }
