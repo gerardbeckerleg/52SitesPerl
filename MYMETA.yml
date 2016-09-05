@@ -1,0 +1,21 @@
+---
+abstract: "[One line description of module's purpose here]"
+author:
+  - 'Gerard <gerardbeckerleg@outlook.com>'
+build_requires: {}
+dynamic_config: 0
+generated_by: 'Module::Build version 0.4216, CPAN::Meta::Converter version 2.150005'
+license: artistic_2
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: My-Module
+provides:
+  My::Module:
+    file: lib/My/Module.pm
+    version: v0.0.3
+requires:
+  Test::More: '0'
+  version: '0'
+version: v0.0.3
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
