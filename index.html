@@ -1,10 +1,30 @@
-<HTML>
-<TITLE>Simple Web Form</TITLE>
-<BODY>
-<b>Simple Web Form</b><p>
-<FORM ACTION="/perl/Formpost.cgi">
-<INPUT TYPE="TEXT" NAME="Field" SIZE="25"><BR>
-<INPUT TYPE="SUBMIT" NAME="Submit" VALUE="Submit">
+<FORM ACTION="/perl/Formpost.cgi"
+METHOD="POST">
+Full name? <BR>
+<INPUT TYPE="TEXT" NAME="name" SIZE="40">
+<P>
+Email address? <BR>
+<INPUT TYPE="TEXT" NAME="email" SIZE="40">
+<P>
+Send free widget? 
+<INPUT TYPE="RADIO" NAME="send" VALUE="yes"> Yes
+<INPUT TYPE="RADIO" NAME="send" VALUE="no"> No
+<INPUT TYPE="RADIO" NAME="send" VALUE="maybe"> Maybe
+<P>
+Status?
+<INPUT TYPE="CHECKBOX" NAME="status" VALUE="student"> Student
+<INPUT TYPE="CHECKBOX" NAME="status" VALUE="consult"> Consultant
+<INPUT TYPE="CHECKBOX" NAME="status" VALUE="prog"> Programmer
+<P>
+<SELECT NAME="when">
+<OPTION SELECTED>Send it Now</OPTION>
+<OPTION>Send it later</OPTION>
+<OPTION>Send it next month</OPTION>
+<OPTION>Send it next year</OPTION>
+</SELECT>
+<P>
+Notes: <BR>
+<TEXTAREA NAME="description" ROWS="8" COLS="45"></TEXTAREA>
+<P>
+<INPUT TYPE="SUBMIT" NAME="submit" VALUE="Submit">
 </FORM>
-</BODY>
-</HTML>
