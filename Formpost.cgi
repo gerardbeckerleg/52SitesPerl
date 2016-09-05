@@ -1,39 +1,34 @@
-#!rebol -cs
-REBOL []
-print "Content-type: text/html^/"
+#!/usr/bin/perl
 
-html: make string! 2000
-emit: func [data] [repend html data]
+    local ($buffer, @pairs, $pair, $name, $value, %FORM);
+    # Read in text
+    $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;
+    if ($ENV{'REQUEST_METHOD'} eq "POST")
+    {
+        read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
+    }else {
+	$buffer = $ENV{'QUERY_STRING'};
+    }
+    # Split information into name/value pairs
+    @pairs = split(/&/, $buffer);
+    foreach $pair (@pairs)
+    {
+	($name, $value) = split(/=/, $pair);
+	$value =~ tr/+/ /;
+	$value =~ s/%(..)/pack("C", hex($1))/eg;
+	$FORM{$name} = $value;
+    }
+    $first_name = $FORM{first_name};
+    $last_name  = $FORM{last_name};
 
-read-cgi: func [
-    ;Read CGI data. Return data as string or NONE.
-    /local data buffer
-][
-    switch system/options/cgi/request-method [
-        "POST" [
-            data: make string! 1020
-            buffer: make string! 16380
-            while [positive? read-io system/ports/input buffer 16380][
-                append data buffer
-                clear buffer
-            ]
-        ]
-        "GET" [data: system/options/cgi/query-string]
-    ]
-    data
-]
+print "Content-type:text/html\r\n\r\n";
+print "<html>";
+print "<head>";
+print "<title>Hello - Second CGI Program</title>";
+print "</head>";
+print "<body>";
+print "<h2>Hello $first_name $last_name - Second CGI Program</h2>";
+print "</body>";
+print "</html>";
 
-emit [
-    <HTML><BODY BGCOLOR="#FFC080">
-    <b> "CGI Form Data:" </b><p>
-    "Submitted: " now <BR>
-    "REBOL Version: " system/version <P>
-    <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="5">
-]
-
-foreach [var value] decode-cgi read-cgi [
-    emit [<TR><TD> mold var </TD><TD> mold value </TD></TR>]
-]
-
-emit [</TABLE></BODY></HTML>]
-print html
+1;
