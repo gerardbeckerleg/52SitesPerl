@@ -1,7 +1,6 @@
 before_script:
   - echo -e "Host $DEPLOYHOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-script: phpunit --verbose .
 branches:
   only:
     - master
