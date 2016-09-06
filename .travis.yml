@@ -17,6 +17,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ $SSHUSER@$DEPLOYHOST:$DEPLOYPATH
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ $SSHUSER@$DEPLOYHOST:$DEPLOYPATH --exclude 'deploy_rsa'
   on:
   branch: master
